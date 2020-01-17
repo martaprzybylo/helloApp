@@ -62,6 +62,8 @@ public class TodoServlet extends HttpServlet {
         var inputStream = req.getInputStream();
         var newTodo = mapper.readValue(inputStream, Todo.class);
 
+        resp.setContentType("application/json;charset=UTF-8");
+
         var outputStream = resp.getOutputStream();
         Todo todo = repository.addTodo(newTodo);
 
